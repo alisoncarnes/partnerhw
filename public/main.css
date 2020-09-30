@@ -1,0 +1,25 @@
+/* *{
+  text-align: center;
+} */
+
+.container{
+  display: flex;
+  justify-content: center;
+}
+
+main{
+  width: 80%;
+}
+
+.row{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.card{
+  display: block;
+  align-items: center;
+  flex-direction: row;
+}

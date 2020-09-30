@@ -51,6 +51,7 @@ class App extends React.Component {
   render = () => {
     return (
       <div>
+        <h1>Movies App</h1>
       <h2>Create Movie</h2>
       <form onSubmit={this.handleSubmit}>
         <label htmlFor="title">Title</label><br />
@@ -63,42 +64,54 @@ class App extends React.Component {
       </form>
 
         <h3>List of Movies</h3>
-        <ul>
+        <div className="row" >
         { this.state.movies.map(movies => { return (
-          <li key={movies._id}>{movies.title}<br />
-            {movies.year}
-            <img src={movies.img} alt={movies.title}/><br/><br/>
-            <button value={movies._id} onClick={this.deletedMovies}>DELETE MOVIE</button>
-            <details>
-            <summary>Edit this Movie</summary>
-              <form id={movies._id} onSubmit={this.updatedMovie}>
-                <label htmlFor="title">Title</label><br />
-                <input
-                type="text"
-                id="title"
-                onChange={this.handleChange}
-                value={this.state.title}
-                /><br />
-                <label htmlFor="year">Year</label><br />
-                <input
-                type="number"
-                id="year"
-                onChange={this.handleChange}
-                value={this.state.year}
-                /><br />
-                <label htmlFor="img">Image</label><br />
-                <input
-                type="text"
-                id="img"
-                onChange={this.handleChange}
-                value={this.state.img}
-                /><br />
-                <input type="submit" value="Update Movie" />
-              </form>
-            </details>
-          </li>
+
+
+              <div className="card" key={movies._id}>
+                <div className="card-image">
+                  <img src={movies.img} alt={movies.title}/>
+
+
+                </div>
+                <div className="card-content">
+                  {movies.year}<br/>
+
+                  <button value={movies._id} onClick={this.deletedMovies}>DELETE MOVIE</button>
+                  <details>
+                    <summary>Edit this Movie</summary>
+                      <form id={movies._id} onSubmit={this.updatedMovie}>
+                      <label htmlFor="title">Title</label><br />
+                      <input
+                      type="text"
+                      id="title"
+                      onChange={this.handleChange}
+                      value={this.state.title}
+                      /><br />
+                      <label htmlFor="year">Year</label><br />
+                      <input
+                      type="number"
+                      id="year"
+                      onChange={this.handleChange}
+                      value={this.state.year}
+                      /><br />
+                      <label htmlFor="img">Image</label><br />
+                      <input
+                      type="text"
+                      id="img"
+                      onChange={this.handleChange}
+                      value={this.state.img}
+                      /><br />
+                    <input type="submit" value="Update Movie" />
+                  </form>
+                  </details>
+              </div>
+            </div>
+
+
+
         )})}
-        </ul>
+        </div>
       </div>
     )
   }
