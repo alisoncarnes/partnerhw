@@ -1,5 +1,3 @@
-// console.log('movies')
-
 class App extends React.Component {
   state = {
     title: '',
@@ -7,7 +5,6 @@ class App extends React.Component {
     img: '',
     movies: []
   }
-
   componentDidMount = () => {
     axios
       .get('/movies')
@@ -54,30 +51,25 @@ class App extends React.Component {
   render = () => {
     return (
       <div>
-        <h2>Create Movie</h2>
-        <form onSubmit={this.handleSubmit}>
-
-          <label htmlFor="title">Title</label><br />
-          <input id="title" onChange={this.handleChange} type="text" /><br />
-
-          <label htmlFor="year">Year</label><br />
-          <input id="year" onChange={this.handleChange} type="number" /><br />
-
-          <label htmlFor="img">Image</label><br />
-          <input id="img" type="text" onChange={this.handleChange} /><br />
-          <input type="submit" value="Add Movie" />
-        </form>
+      <h2>Create Movie</h2>
+      <form onSubmit={this.handleSubmit}>
+        <label htmlFor="title">Title</label><br />
+        <input id="title" onChange={this.handleChange} type="text" /><br />
+        <label htmlFor="year">Year</label><br />
+        <input id="year" onChange={this.handleChange} type="number" /><br />
+        <label htmlFor="img">Image</label><br />
+        <input id="img" type="text" onChange={this.handleChange} /><br />
+        <input type="submit" value="Add Movie" />
+      </form>
 
         <h3>List of Movies</h3>
         <ul>
         { this.state.movies.map(movies => { return (
           <li key={movies._id}>{movies.title}<br />
+            {movies.year}
             <img src={movies.img} alt={movies.title}/><br/><br/>
-
             <button value={movies._id} onClick={this.deletedMovies}>DELETE MOVIE</button>
-
             <details>
-
             <summary>Edit this Movie</summary>
               <form id={movies._id} onSubmit={this.updatedMovie}>
                 <label htmlFor="title">Title</label><br />
@@ -87,7 +79,6 @@ class App extends React.Component {
                 onChange={this.handleChange}
                 value={this.state.title}
                 /><br />
-
                 <label htmlFor="year">Year</label><br />
                 <input
                 type="number"
@@ -95,7 +86,6 @@ class App extends React.Component {
                 onChange={this.handleChange}
                 value={this.state.year}
                 /><br />
-
                 <label htmlFor="img">Image</label><br />
                 <input
                 type="text"
@@ -103,9 +93,7 @@ class App extends React.Component {
                 onChange={this.handleChange}
                 value={this.state.img}
                 /><br />
-
                 <input type="submit" value="Update Movie" />
-
               </form>
             </details>
           </li>
@@ -115,7 +103,6 @@ class App extends React.Component {
     )
   }
 }
-
 ReactDOM.render(
   <App/>,
   document.querySelector("main")
