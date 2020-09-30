@@ -33,9 +33,6 @@ module.exports = [
     title: "Lost Boys",
     year: 1987,
     img: "https://www.imdb.com/title/tt0093437/mediaviewer/rm1667893248?ref_=tt_ov_i"
-<<<<<<< HEAD
+
   }
 ]
-=======
-  },
->>>>>>> ca9d902aab1950d83adc30f2a307347c7c6ab71a
