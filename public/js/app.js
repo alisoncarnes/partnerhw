@@ -3,7 +3,7 @@
 class App extends React.Component {
   state = {
     title: '',
-    year: ,
+    year: '',
     img: '',
     movies: []
   }
@@ -17,7 +17,7 @@ class App extends React.Component {
         })
       })
   }
-  deleteMovies = (event) => {
+  deletedMovies = (event) => {
     axios
       .delete('/movies/' + event.target.value)
       .then(response => this.setState({movies: response.data}))
@@ -31,13 +31,13 @@ class App extends React.Component {
       .post('/movies', this.state)
       .then(response => this.setState(
         { title: '',
-          year: ,
+          year: '',
           img: '',
           movies: response.data
         })
       )
   }
-  updateMovies = (event) => {
+  updatedMovie = (event) => {
     event.preventDefault()
     const id = event.target.id
     axios
@@ -46,7 +46,7 @@ class App extends React.Component {
         this.setState({
           movies: response.data,
           title: '',
-          year: ,
+          year: '',
           img: ''
         })
       })
@@ -65,29 +65,44 @@ class App extends React.Component {
 
           <label htmlFor="img">Image</label><br />
           <input id="img" type="text" onChange={this.handleChange} /><br />
-
+          <input type="submit" value="Add Movie" />
         </form>
 
         <h3>List of Movies</h3>
         <ul>
         { this.state.movies.map(movies => { return (
           <li key={movies._id}>{movies.title}<br />
-            <img src={movies.img} alt={movies image}/>
+            <img src={movies.img} alt={movies.title}/><br/><br/>
 
-            <button value={movies._id} onClick={this.deleteMovies}>DELETE MOVIE</button>
+            <button value={movies._id} onClick={this.deletedMovies}>DELETE MOVIE</button>
 
             <details>
 
             <summary>Edit this Movie</summary>
-              <form onSubmit={this.updateMovies} id={movies._id}>
+              <form id={movies._id} onSubmit={this.updatedMovie}>
                 <label htmlFor="title">Title</label><br />
-                <input type="text" id="name" onChange={this.handleChange}/><br />
+                <input
+                type="text"
+                id="title"
+                onChange={this.handleChange}
+                value={this.state.title}
+                /><br />
 
                 <label htmlFor="year">Year</label><br />
-                <input type="number" id="year" onChange={this.handleChange}/><br />
+                <input
+                type="number"
+                id="year"
+                onChange={this.handleChange}
+                value={this.state.year}
+                /><br />
 
                 <label htmlFor="img">Image</label><br />
-                <input type="text" ="img" onChange={this.handleChange}/><br />
+                <input
+                type="text"
+                id="img"
+                onChange={this.handleChange}
+                value={this.state.img}
+                /><br />
 
                 <input type="submit" value="Update Movie" />
 
@@ -102,6 +117,6 @@ class App extends React.Component {
 }
 
 ReactDOM.render(
-  <App />,
+  <App/>,
   document.querySelector("main")
 )
