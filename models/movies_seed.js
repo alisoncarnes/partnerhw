@@ -2,7 +2,7 @@ module.exports = [
   {
     title: "Raiders of the Lost Ark",
     year: 1981,
-    img:  "https://www.imdb.com/title/tt0082971/mediaviewer/rm1612744448?ref_=tt_ov_i"
+    img:  "https://www.imdb.com/title/tt0082971/mediaviewer/rm1612744448?ref_=tt_ov_i.jpg"
   },
   {
     title: "Family Jewels",
@@ -12,7 +12,7 @@ module.exports = [
   {
     title: "Wizard of OZ",
     year: 1939,
-    img: 'https://www.imdb.com/video/imdb/vi2210441241?playlistId=tt0032138&ref_=tt_ov_vi'
+    img: "https://www.imdb.com/video/imdb/vi2210441241?playlistId=tt0032138&ref_=tt_ov_vi.jpg"
   },
   {
     title: "Star Wars",
@@ -22,17 +22,16 @@ module.exports = [
   {
     title: "Stripes",
     year: 1981,
-    img: "https://www.imdb.com/title/tt0083131/mediaviewer/rm2065750272?ref_=tt_ov_i"
+    img: "https://www.imdb.com/title/tt0083131/mediaviewer/rm2065750272?ref_=tt_ov_i.jpg"
   },
   {
     title: "Goonies",
     year: 1985,
-    img: "https://www.imdb.com/title/tt0089218/mediaviewer/rm620367360?ref_=tt_ov_i"
+    img: "https://www.imdb.com/title/tt0089218/mediaviewer/rm620367360?ref_=tt_ov_i.jpg"
   },
   {
     title: "Lost Boys",
     year: 1987,
-    img: "https://www.imdb.com/title/tt0093437/mediaviewer/rm1667893248?ref_=tt_ov_i"
-
+    img: "https://www.imdb.com/title/tt0093437/mediaviewer/rm1667893248?ref_=tt_ov_i.jpg"
   }
 ]
